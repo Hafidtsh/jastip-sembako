@@ -128,10 +128,10 @@ function orderWA() {
     text += `   Rp${subtotal.toLocaleString()}%0A`;
   });
 
-  let ongkir = cart.length > 0 ? 5000 : 0;
+  let ongkir = cart.length == 0 - 1;
   let totalFinal = total + ongkir;
 
-  text += `%0A🚚 Ongkir: Rp${ongkir.toLocaleString()}%0A`;
+  text += `🚚 Ongkir: Gratis%0A`;
   text += `💰 *Total: Rp${totalFinal.toLocaleString()}*%0A%0A`;
 
   text += `👤 Nama: ${nama}%0A`;
