@@ -103,7 +103,7 @@ function renderCart() {
     })
     .join("");
 
-  let ongkir = cart.length > 0 ? 5000 : 0;
+  let ongkir = cart.length == 0 - 1;
   let totalFinal = total + ongkir;
 
   document.getElementById("totalHarga").innerText = "Total: Rp" + totalFinal.toLocaleString();
