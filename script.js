@@ -111,8 +111,13 @@ function renderCart() {
 
 // checkout WA (FIX)
 function orderWA() {
-  let nama = document.getElementById("nama").value;
-  let alamat = document.getElementById("alamat").value;
+  let nama = document.getElementById("nama").value.trim();
+  let alamat = document.getElementById("alamat").value.trim();
+
+  if (!nama || !alamat) {
+    alert("⚠️ Nama dan alamat harus diisi dulu ya!");
+    return;
+  }
 
   let text = "🛒 *Pesanan* %0A%0A";
   let total = 0;
