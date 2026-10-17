@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sembako - GoMart Mini</title>
+    <title>Pangkalan Gas - GasMart</title>
     <link rel="icon" href="images/logo.png" type="image/png" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
@@ -11,76 +11,43 @@
 
   <body>
     <header>
-      <h1>🛒 Jastip Sembako</h1>
+      <h1>🔥 Pangkalan Gas GasMart</h1>
       <span>Padalarang</span>
     </header>
 
     <section class="hero">
-      <h2>Belanja Tanpa Ribet</h2>
-      <p>Kami belanja ke pasar, kamu tinggal terima beres</p>
+      <h2>Gas Habis? Kami Antar!</h2>
+      <p>Pesan gas LPG dari rumah, kami siap antar ke depan pintu</p>
     </section>
 
-    <h3 class="section-title">🔥 Produk Populer</h3>
+    <h3 class="section-title">🔥 Pilihan Gas LPG</h3>
 
     <div class="grid">
       <div class="card">
-        <img src="images/beras.jpg" alt="Beras 5kg" />
-        <h4>Beras 5kg</h4>
-        <p>Rp80.000</p>
-        <button onclick="addToCart('Beras 5kg', 80000, 'Beras premium kualitas bagus', 'images/beras.jpg')">Tambah</button>
+        <img src="images/tabung3kg.jpg" alt="Gas Melon 3kg" />
+        <h4>Gas Melon 3kg</h4>
+        <p class="price">Rp22.000</p>
+        <p class="label-layanan">Isi Ulang</p>
+        <button onclick="addToCart('Gas Melon 3kg (Isi Ulang)', 22000, 'LPG 3kg bersubsidi', 'images/tabung3kg.jpg')">Tambah</button>
       </div>
 
       <div class="card">
-        <img src="images/telur.jpg" alt="Telur" />
-        <h4>Telur 1 Kg</h4>
-        <p>Rp30.000</p>
-        <button onclick="addToCart('Telur 1 Kg', 30000, 'Telur bersih sehat', 'images/telur.jpg')">Tambah</button>
+        <img src="images/tabung5kg.jpg" alt="Gas Non-Subsidi 5.5kg" />
+        <h4>Gas Non-Subsidi 5.5kg</h4>
+        <p class="price">Rp115.000</p>
+        <p class="label-layanan">Isi Ulang</p>
+        <button onclick="addToCart('Gas Non-Subsidi 5.5kg (Isi Ulang)', 115000, 'LPG 5.5kg non-subsidi', 'images/tabung5kg.jpg')">Tambah</button>
       </div>
 
       <div class="card">
-        <img src="images/minyak.jpg" alt="Minyak1L" />
-        <h4>Minyak 1L</h4>
-        <p>Rp23.000</p>
-        <button onclick="addToCart('Minyak 1L', 23000, 'Minyak premium kualitas bagus', 'images/minyak.jpg')">Tambah</button>
-      </div>
-
-      <div class="card">
-        <img src="images/paketsayur.png" alt="paketsayur" />
-        <h4>Sayur Paket</h4>
-        <p>Rp20.000</p>
-        <button onclick="addToCart('Sayur Paket', 20000, 'Kol, Wortel, Bayam kualitas bagus', 'images/paketsayur.png')">Tambah</button>
-      </div>
-
-      <div class="card">
-        <img src="images/tabung3kg.jpg" alt="tabung3kg" />
-        <h4>Gas isi 3kg</h4>
-        <p>Rp22.000</p>
-        <button onclick="addToCart('Tabung 3kg', 22000, 'Gas isi 3kg', 'images/tabung3kg.jpg')">Tambah</button>
-      </div>
-
-      <div class="card">
-        <img src="images/tabung5kg.jpg" alt="tabung5kg" />
-        <h4>Gas isi 5kg</h4>
-        <p>Rp115.000</p>
-        <button onclick="addToCart('Tabung 5.5kg', 115000, 'Gas isi 5.5kg', 'images/tabung5kg.jpg')">Tambah</button>
-      </div>
-
-      <div class="card">
-        <img src="images/tabung12kg.jpg" alt="tabung12kg" />
-        <h4>Gas isi 12kg</h4>
-        <p>Rp235.000</p>
-        <button onclick="addToCart('Tabung 12kg', 235000, 'Gas isi 12kg', 'images/tabung12kg.jpg')">Tambah</button>
+        <img src="images/tabung12kg.jpg" alt="Gas Non-Subsidi 12kg" />
+        <h4>Gas Non-Subsidi 12kg</h4>
+        <p class="price">Rp235.000</p>
+        <p class="label-layanan">Isi Ulang</p>
+        <button onclick="addToCart('Gas Non-Subsidi 12kg (Isi Ulang)', 235000, 'LPG 12kg non-subsidi', 'images/tabung12kg.jpg')">Tambah</button>
       </div>
     </div>
 
-    <h3 class="section-title">➕ Titip Barang Custom</h3>
-
-    <div style="padding: 0 20px">
-      <input id="customItem" placeholder="Contoh: cabai 1kg, bawang 2kg" />
-      <input id="customPrice" placeholder="Harga (contoh: 20000)" type="number" />
-      <input id="customNote" placeholder="Catatan (opsional: pedas, segar, dll)" />
-      <button class="btn" onclick="addCustomItem()">Tambah ke Keranjang</button>
-    </div>
     <div class="warning-cod">
       ⚠️ <strong>Pembayaran hanya COD</strong> (Bayar di Tempat)<br />
       💬 Order diproses setelah konfirmasi via WhatsApp
@@ -88,23 +55,23 @@
 
     <div style="padding: 0 20px">
       <input id="nama" placeholder="Nama kamu" />
-      <input id="alamat" placeholder="Alamat lengkap" />
+      <input id="alamat" placeholder="Alamat lengkap pengiriman" />
     </div>
 
     <div class="cart">
       <div id="cartItems"></div>
-
       <h3 id="totalHarga">Total: Rp0</h3>
-
-      <button class="btn" onclick="orderWA()">Checkout via WhatsApp</button>
+      <button class="btn" onclick="orderWA()">🛒 Pesan via WhatsApp</button>
     </div>
+
     <div class="rules">
       <h3>📜 Aturan Pemesanan</h3>
       <ul>
-        <li>⏰ Jam Operasional: 08.00 -20.00 WIB</li>
+        <li>⏰ Jam Operasional: 08.00 – 20.00 WIB</li>
         <li>🚚 Gratis Ongkir ke semua area Padalarang</li>
-        <li>💳 Pembayaran bisa COD atau Virtual Payment (QRIS)</li>
-        <li>📦 Minimal order Rp50.000</li>
+        <li>💳 Pembayaran COD atau QRIS</li>
+        <li>🔁 Siapkan tabung kosong untuk isi ulang</li>
+        <li>📦 Minimal order 1 tabung</li>
       </ul>
     </div>
 

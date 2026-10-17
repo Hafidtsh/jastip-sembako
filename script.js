@@ -1,9 +1,8 @@
-// ✅ ambil data dari localStorage
+// ambil data dari localStorage
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// tambah item
+// tambah item ke cart
 function addToCart(name, price, desc, img) {
-  // cek kalau barang sudah ada → tambah qty
   let existing = cart.find((item) => item.name === name);
 
   if (existing) {
@@ -16,7 +15,7 @@ function addToCart(name, price, desc, img) {
   renderCart();
 }
 
-//Quantity
+// ubah qty
 function changeQty(index, change) {
   cart[index].qty += change;
 
@@ -35,40 +34,6 @@ function removeItem(index) {
   renderCart();
 }
 
-// tambah custom item
-function addCustomItem() {
-  let name = document.getElementById("customItem").value;
-  let price = parseInt(document.getElementById("customPrice").value);
-  let note = document.getElementById("customNote").value;
-
-  if (name && price) {
-    let existing = cart.find((item) => item.name === name);
-
-    if (existing) {
-      existing.qty += 1;
-      if (note) existing.note = note; // update catatan
-    } else {
-      cart.push({
-        name,
-        price,
-        desc: "Pesanan custom",
-        img: "images/logo.png",
-        qty: 1,
-        note: note,
-      });
-    }
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-    renderCart();
-
-    // reset
-    document.getElementById("customItem").value = "";
-    document.getElementById("customPrice").value = "";
-    document.getElementById("customNote").value = "";
-  } else {
-    alert("Isi nama dan harga dulu bro!");
-  }
-}
 // render cart + total
 function renderCart() {
   let total = 0;
@@ -81,35 +46,27 @@ function renderCart() {
       return `
       <div class="cart-item">
         <img src="${item.img || "images/logo.png"}" />
-        
         <div class="info">
           <strong>${item.name}</strong>
           <p>${item.desc || ""}</p>
-          
-          ${item.note ? `<small>📝 ${item.note}</small>` : ""}
-
           <div class="qty">
             <button onclick="changeQty(${index}, -1)">-</button>
             <span>${item.qty}</span>
             <button onclick="changeQty(${index}, 1)">+</button>
           </div>
-
-          <small>Rp${subtotal.toLocaleString()}</small>
+          <small>Rp${subtotal.toLocaleString("id-ID")}</small>
         </div>
-
         <button onclick="removeItem(${index})">❌</button>
       </div>
     `;
     })
     .join("");
 
-  let ongkir = cart.length == 0 - 1;
-  let totalFinal = total + ongkir;
-
-  document.getElementById("totalHarga").innerText = "Total: Rp" + totalFinal.toLocaleString();
+  document.getElementById("totalHarga").innerText =
+    "Total: Rp" + total.toLocaleString("id-ID");
 }
 
-// checkout WA (FIX)
+// checkout via WhatsApp
 function orderWA() {
   let nama = document.getElementById("nama").value.trim();
   let alamat = document.getElementById("alamat").value.trim();
@@ -119,31 +76,29 @@ function orderWA() {
     return;
   }
 
-  let text = "🛒 *Pesanan* %0A%0A";
+  if (cart.length === 0) {
+    alert("⚠️ Keranjang masih kosong, tambahkan produk dulu!");
+    return;
+  }
+
+  let text = "� *Pesanan Gas LPG - GasMart*%0A%0A";
   let total = 0;
 
   cart.forEach((item, i) => {
     let subtotal = item.price * item.qty;
     total += subtotal;
-
     text += `${i + 1}. ${item.name} x${item.qty}%0A`;
-    if (item.note) {
-      text += `   📝 ${item.note}%0A`;
-    }
-    text += `   Rp${subtotal.toLocaleString()}%0A`;
+    text += `   Rp${subtotal.toLocaleString("id-ID")}%0A`;
   });
 
-  let ongkir = cart.length == 0 - 1;
-  let totalFinal = total + ongkir;
-
-  text += `🚚 Ongkir: Gratis%0A`;
-  text += `💰 *Total: Rp${totalFinal.toLocaleString()}*%0A%0A`;
-
+  text += `%0A🚚 Ongkir: Gratis%0A`;
+  text += `💰 *Total: Rp${total.toLocaleString("id-ID")}*%0A%0A`;
   text += `👤 Nama: ${nama}%0A`;
-  text += `📍 Alamat: ${alamat}`;
+  text += `📍 Alamat: ${alamat}%0A%0A`;
+  text += `🔁 _Siapkan tabung kosong untuk isi ulang_`;
 
   window.open("https://wa.me/62895394023138?text=" + text);
 }
 
-// pertama load
+// load cart saat pertama buka
 renderCart();
