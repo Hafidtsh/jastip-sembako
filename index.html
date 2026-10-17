@@ -3,76 +3,197 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pangkalan Gas</title>
+    <title>GasMart — Pangkalan Gas Online</title>
     <link rel="icon" href="images/logo.png" type="image/png" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
-    <header>
-      <h1>😎 Pangkalan Gas</h1>
-      <span>Padalarang</span>
-    </header>
 
+    <!-- ===== NAV ===== -->
+    <nav class="navbar">
+      <a href="#" class="wordmark">GAS<span>MART</span></a>
+      <div class="nav-meta">
+        <span class="mono status-dot">● OPEN</span>
+        <span class="mono">08.00–20.00 WIB</span>
+      </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
     <section class="hero">
-      <h2>Gas Habis? Kami Antar!</h2>
-      <p>Pesan gas LPG dari rumah, kami siap antar ke depan pintu</p>
+      <div class="hero-label mono">— Pangkalan Gas Resmi · Padalarang</div>
+      <h1 class="hero-title">
+        Gas<br /><em>Habis?</em>
+      </h1>
+      <div class="hero-right">
+        <p class="hero-desc">Pesan LPG dari rumah, kami antar langsung ke depan pintu. Cepat, terpercaya, tanpa ribet.</p>
+        <a href="#produk" class="btn-primary">Pesan Sekarang ↓</a>
+        <div class="hero-meta mono">
+          <span>COD / QRIS</span>
+          <span class="sep">·</span>
+          <span>Free Ongkir</span>
+          <span class="sep">·</span>
+          <span>Padalarang</span>
+        </div>
+      </div>
+      <div class="hero-ticker mono">
+        <span>LPG 3KG &nbsp;·&nbsp; LPG 5.5KG &nbsp;·&nbsp; LPG 12KG &nbsp;·&nbsp; ISI ULANG &nbsp;·&nbsp; ANTAR KE RUMAH &nbsp;·&nbsp;</span>
+        <span aria-hidden="true">LPG 3KG &nbsp;·&nbsp; LPG 5.5KG &nbsp;·&nbsp; LPG 12KG &nbsp;·&nbsp; ISI ULANG &nbsp;·&nbsp; ANTAR KE RUMAH &nbsp;·&nbsp;</span>
+      </div>
     </section>
 
-    <h3 class="section-title">😎👌 Pilihan Gas LPG</h3>
-
-    <div class="grid">
-      <div class="card">
-        <img src="images/tabung3kg.jpg" alt="Gas Melon 3kg" />
-        <h4>Gas Melon 3kg</h4>
-        <p class="price">Rp22.000</p>
-        <p class="label-layanan">Isi Ulang</p>
-        <button onclick="addToCart('Gas Melon 3kg (Isi Ulang)', 22000, 'LPG 3kg bersubsidi', 'images/tabung3kg.jpg')">Tambah</button>
+    <!-- ===== PRODUK ===== -->
+    <section class="section-produk" id="produk">
+      <div class="section-header">
+        <span class="mono section-num">01 /</span>
+        <h2>Pilihan Gas LPG</h2>
       </div>
 
-      <div class="card">
-        <img src="images/tabung5kg.jpg" alt="Gas Non-Subsidi 5.5kg" />
-        <h4>Gas Non-Subsidi 5.5kg</h4>
-        <p class="price">Rp115.000</p>
-        <p class="label-layanan">Isi Ulang</p>
-        <button onclick="addToCart('Gas Non-Subsidi 5.5kg (Isi Ulang)', 115000, 'LPG 5.5kg non-subsidi', 'images/tabung5kg.jpg')">Tambah</button>
+      <div class="produk-grid">
+
+        <article class="produk-card" tabindex="0">
+          <div class="produk-badge mono">SUBSIDI</div>
+          <div class="produk-img-wrap">
+            <img src="images/tabung3kg.jpg" alt="Gas Melon 3kg" loading="lazy" />
+          </div>
+          <div class="produk-body">
+            <h3>Gas Melon<br /><span>3 kg</span></h3>
+            <div class="produk-meta mono">ISI ULANG</div>
+            <div class="produk-price">Rp22.000</div>
+            <button
+              class="btn-add"
+              onclick="addToCart('Gas Melon 3kg (Isi Ulang)', 22000, 'LPG 3kg bersubsidi', 'images/tabung3kg.jpg')"
+              aria-label="Tambah Gas Melon 3kg ke keranjang"
+            >+ Tambah</button>
+          </div>
+        </article>
+
+        <article class="produk-card featured" tabindex="0">
+          <div class="produk-badge mono">NON-SUBSIDI</div>
+          <div class="produk-img-wrap">
+            <img src="images/tabung5kg.jpg" alt="Gas Non-Subsidi 5.5kg" loading="lazy" />
+          </div>
+          <div class="produk-body">
+            <h3>Gas Non-Subsidi<br /><span>5.5 kg</span></h3>
+            <div class="produk-meta mono">ISI ULANG</div>
+            <div class="produk-price">Rp115.000</div>
+            <button
+              class="btn-add"
+              onclick="addToCart('Gas Non-Subsidi 5.5kg (Isi Ulang)', 115000, 'LPG 5.5kg non-subsidi', 'images/tabung5kg.jpg')"
+              aria-label="Tambah Gas Non-Subsidi 5.5kg ke keranjang"
+            >+ Tambah</button>
+          </div>
+        </article>
+
+        <article class="produk-card" tabindex="0">
+          <div class="produk-badge mono">NON-SUBSIDI</div>
+          <div class="produk-img-wrap">
+            <img src="images/tabung12kg.jpg" alt="Gas Non-Subsidi 12kg" loading="lazy" />
+          </div>
+          <div class="produk-body">
+            <h3>Gas Non-Subsidi<br /><span>12 kg</span></h3>
+            <div class="produk-meta mono">ISI ULANG</div>
+            <div class="produk-price">Rp235.000</div>
+            <button
+              class="btn-add"
+              onclick="addToCart('Gas Non-Subsidi 12kg (Isi Ulang)', 235000, 'LPG 12kg non-subsidi', 'images/tabung12kg.jpg')"
+              aria-label="Tambah Gas Non-Subsidi 12kg ke keranjang"
+            >+ Tambah</button>
+          </div>
+        </article>
+
       </div>
+    </section>
 
-      <div class="card">
-        <img src="images/tabung12kg.jpg" alt="Gas Non-Subsidi 12kg" />
-        <h4>Gas Non-Subsidi 12kg</h4>
-        <p class="price">Rp235.000</p>
-        <p class="label-layanan">Isi Ulang</p>
-        <button onclick="addToCart('Gas Non-Subsidi 12kg (Isi Ulang)', 235000, 'LPG 12kg non-subsidi', 'images/tabung12kg.jpg')">Tambah</button>
+    <!-- ===== INFO STRIP ===== -->
+    <section class="info-strip">
+      <div class="info-item">
+        <span class="info-icon">🚚</span>
+        <div>
+          <strong>Gratis Ongkir</strong>
+          <p class="mono">Seluruh area Padalarang</p>
+        </div>
       </div>
-    </div>
+      <div class="info-divider"></div>
+      <div class="info-item">
+        <span class="info-icon">💳</span>
+        <div>
+          <strong>COD &amp; QRIS</strong>
+          <p class="mono">Bayar di tempat</p>
+        </div>
+      </div>
+      <div class="info-divider"></div>
+      <div class="info-item">
+        <span class="info-icon">🔁</span>
+        <div>
+          <strong>Isi Ulang</strong>
+          <p class="mono">Siapkan tabung kosong</p>
+        </div>
+      </div>
+    </section>
 
-    <div class="warning-cod">
-      ⚠️ <strong>Pembayaran hanya COD</strong> (Bayar di Tempat)<br />
-      💬 Order diproses setelah konfirmasi via WhatsApp
-    </div>
+    <!-- ===== ORDER SECTION ===== -->
+    <section class="section-order" id="order">
+      <div class="section-header">
+        <span class="mono section-num">02 /</span>
+        <h2>Detail Pengiriman</h2>
+      </div>
+      <div class="order-form">
+        <div class="form-group">
+          <label class="mono" for="nama">NAMA PEMESAN</label>
+          <input id="nama" type="text" placeholder="Masukkan nama lengkap" autocomplete="name" />
+        </div>
+        <div class="form-group">
+          <label class="mono" for="alamat">ALAMAT PENGIRIMAN</label>
+          <input id="alamat" type="text" placeholder="Jl. contoh, No. RT/RW, Kelurahan" autocomplete="street-address" />
+        </div>
+        <div class="cod-notice mono">
+          ⚠ &nbsp;Pembayaran hanya COD — bayar saat gas tiba
+        </div>
+      </div>
+    </section>
 
-    <div style="padding: 0 20px">
-      <input id="nama" placeholder="Nama kamu" />
-      <input id="alamat" placeholder="Alamat lengkap pengiriman" />
-    </div>
-
-    <div class="cart">
-      <div id="cartItems"></div>
-      <h3 id="totalHarga">Total: Rp0</h3>
-      <button class="btn" onclick="orderWA()">🛒 Pesan via WhatsApp</button>
-    </div>
-
-    <div class="rules">
-      <h3>📜 Aturan Pemesanan</h3>
-      <ul>
-        <li>⏰ Jam Operasional: 08.00 – 20.00 WIB</li>
-        <li>🚚 Gratis Ongkir ke semua area Padalarang</li>
-        <li>💳 Pembayaran COD atau QRIS</li>
-        <li>🔁 Siapkan tabung kosong untuk isi ulang</li>
-        <li>📦 Minimal order 5 tabung</li>
+    <!-- ===== RULES ===== -->
+    <section class="section-rules">
+      <div class="section-header">
+        <span class="mono section-num">03 /</span>
+        <h2>Aturan Pemesanan</h2>
+      </div>
+      <ul class="rules-list">
+        <li><span class="mono rule-num">01</span><span>Jam Operasional <strong>08.00 – 20.00 WIB</strong></span></li>
+        <li><span class="mono rule-num">02</span><span>Gratis Ongkir ke <strong>semua area Padalarang</strong></span></li>
+        <li><span class="mono rule-num">03</span><span>Pembayaran <strong>COD</strong> atau <strong>QRIS</strong></span></li>
+        <li><span class="mono rule-num">04</span><span>Siapkan <strong>tabung kosong</strong> untuk isi ulang</span></li>
+        <li><span class="mono rule-num">05</span><span>Minimal order <strong>1 tabung</strong></span></li>
       </ul>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="footer-top">
+        <span class="wordmark footer-wordmark">GAS<span>MART</span></span>
+        <p class="mono">Pangkalan Gas Resmi · Padalarang</p>
+      </div>
+      <div class="footer-bottom mono">
+        <span>© 2025 GasMart</span>
+        <span>WhatsApp: <a href="https://wa.me/62895394023138" target="_blank" rel="noopener">+62 895-3940-23138</a></span>
+      </div>
+    </footer>
+
+    <!-- ===== FLOATING CART ===== -->
+    <div class="cart" id="cartPanel" aria-live="polite">
+      <div class="cart-header">
+        <span class="mono">KERANJANG</span>
+        <span id="cartCount" class="cart-count mono">0 item</span>
+      </div>
+      <div id="cartItems"></div>
+      <div class="cart-footer">
+        <span id="totalHarga" class="total-text">Total: <strong>Rp0</strong></span>
+        <button class="btn-order" onclick="orderWA()">Pesan via WhatsApp →</button>
+      </div>
     </div>
 
     <script src="script.js"></script>
