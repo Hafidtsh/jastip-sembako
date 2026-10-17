@@ -98,6 +98,11 @@ function orderWA() {
   text += `🔁 _Siapkan tabung kosong untuk isi ulang_`;
 
   window.open("https://wa.me/62895394023138?text=" + text);
+
+  // kosongkan cart setelah order
+  cart = [];
+  localStorage.removeItem("cart");
+  renderCart();
 }
 
 // load cart saat pertama buka
